@@ -1,0 +1,4 @@
+#ifndef WEIGHT_TRAINING_H
+#define WEIGHT_TRAINING_H
+
+#endif // WEIGHT_TRAINING_H
