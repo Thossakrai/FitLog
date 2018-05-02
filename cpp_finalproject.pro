@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
+QT       += sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -25,10 +26,26 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    workout.cpp \
+    cardio.cpp \
+    person.cpp \
+    userprofile.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    workout.h \
+    cardio.h \
+    weight_training.h \
+    food.h \
+    person.h \
+    userprofile.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    home.ui \
+    log.ui \
+    userprofile.ui
+
+DISTFILES += \
+    FitLog.db
