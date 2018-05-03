@@ -8,15 +8,14 @@
 
 class Cardio : public Workout {
 public:
-    Cardio(QString, int, int,QString, QString, int ,int );
+    Cardio(QString name, double calpermin, QString intens ,int duration);
     ~Cardio();
-    int calculate_calories();
+    double calculate_calories();
 
 private:
     int calories_used;
-    QString unit;
+    double calpermin;
     QString intensity;
-    int multiplier;
     int duration;
 };
 

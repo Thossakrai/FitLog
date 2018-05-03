@@ -6,16 +6,16 @@
 
 class Workout{
 public:
-    Workout(QString, int);
-    ~Workout();
-    virtual int calculate_calories();
-    void setTotalCalUsed(int tcu) {total_calories_used = tcu;}
+    Workout(QString name , int cal_used );
+    ~Workout() {}
+    virtual double calculate_calories();
+    void setTotalCalUsed(double tcu) {total_calories_used = tcu;}
     void setName(QString name) {this->name = name;}
     int getTotalCalUsed() {return total_calories_used;}
     QString getName() {return name;}
 private:
     QString name;
-    int total_calories_used;
+    double total_calories_used;
 };
 
 #endif // WORKOUT_H

@@ -17,8 +17,8 @@ Log::Log(QWidget *parent, QString nm) :
     ui->comboBox_foodlist->setModel(model);
      qDebug() << (model->rowCount());
      closeDB();
-     openDB();
 
+     openDB();
       QSqlQueryModel * modelcd = new QSqlQueryModel();
       QSqlQuery * querycd  = new QSqlQuery(fitlog_db);
      querycd->prepare("SELECT CardioName FROM Cardio");
@@ -26,7 +26,6 @@ Log::Log(QWidget *parent, QString nm) :
      modelcd->setQuery(*querycd);
      ui->comboBox_cardiolst->setModel(modelcd);
       closeDB();
-
 
 }
 
@@ -110,5 +109,55 @@ void Log::on_pushButton_cancelcardio_clicked()
 
 void Log::on_comboBox_cardiolst_currentTextChanged(const QString &arg1)
 {
+
+}
+
+void Log::on_comboBox_cardiolst_currentIndexChanged(const QString &arg1)
+{
+    qDebug() << arg1 << endl;
+    QString cardioname = arg1;
+    openDB();
+    QSqlQuery query;
+    query.prepare("select * from Cardio where CardioName = '"+cardioname+"' ");
+
+    if (query.exec()) {
+        while(query.next()) {
+            ui->label_cardiocal->setText(query.value(1).toString());
+        }
+    }
+    closeDB();
+}
+
+void Log::on_pushButton_savecardio_clicked()
+{
+    openDB();
+
+    QString cardioname = ui->comboBox_cardiolst->currentText();
+    double calpermin= ui->label_cardiocal->text().toDouble();
+//    qDebug() << "calpermin form label  = " << calpermin << endl;
+    QString intensity= ui->comboBox_inten->currentText();
+
+    int minute = ui->spinBox_cardiodur->text().toInt();
+    QString date = QDate::currentDate().toString(Qt::ISODate);
+
+    Cardio card(cardioname, calpermin, intensity, minute);
+    double total_cal_used = card.calculate_calories();
+
+    QSqlQuery query;
+    query.prepare("INSERT INTO CardioLogbook(Fullname, Date, CardioName, TotalTime, CalUsed, Intensity) VALUES(?,?,?,?,?,?)");
+    query.addBindValue(fullname);
+    query.addBindValue(date);
+    query.addBindValue(cardioname);
+    query.addBindValue(minute);
+    query.addBindValue(total_cal_used);
+    query.addBindValue(intensity);
+
+    query.exec();
+
+    closeDB();
+   this->hide();
+   Dashboard dashb(this, fullname);
+   dashb.setModal(true);
+   dashb.exec();
 
 }

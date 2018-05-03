@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -257,7 +257,7 @@
        <x>30</x>
        <y>40</y>
        <width>431</width>
-       <height>111</height>
+       <height>120</height>
       </rect>
      </property>
      <layout class="QFormLayout" name="formLayout_2">
@@ -298,7 +298,7 @@
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="QSpinBox" name="spinBox_2">
+       <widget class="QSpinBox" name="spinBox_cardiodur">
         <property name="font">
          <font>
           <family>Prompt</family>
@@ -346,6 +346,47 @@
         <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="label_9">
+        <property name="font">
+         <font>
+          <family>Prompt</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Intersity</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QComboBox" name="comboBox_inten">
+        <property name="font">
+         <font>
+          <family>Prompt</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+        <item>
+         <property name="text">
+          <string>Moderate</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Light</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Hard</string>
+         </property>
+        </item>
        </widget>
       </item>
      </layout>

@@ -8,6 +8,7 @@
 #include <QSqlQueryModel>
 #include "dashboard.h"
 #include "food.h"
+#include "cardio.h"
 #include <QDate>
 
 namespace Ui {
@@ -53,6 +54,10 @@ private slots:
     void on_pushButton_cancelcardio_clicked();
 
     void on_comboBox_cardiolst_currentTextChanged(const QString &arg1);
+
+    void on_comboBox_cardiolst_currentIndexChanged(const QString &arg1);
+
+    void on_pushButton_savecardio_clicked();
 
 private:
     QString fullname;

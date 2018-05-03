@@ -13,5 +13,5 @@ Workout::Workout(QString name, int total_cal_used) {
 }
 
 
-int Workout::calculate_calories() {
+double Workout::calculate_calories() {
 }
