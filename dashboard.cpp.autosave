@@ -19,6 +19,10 @@ Dashboard::Dashboard(QWidget *parent, QString fllnm) :
    query->exec();
    modal->setQuery(* query);
    ui->tableView->setModel(modal);
+   
+//   query->prepare("SELECT TotalCal FROM FoodLogbook");
+//   query->exec();
+   
 
 }
 

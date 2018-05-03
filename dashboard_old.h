@@ -1,22 +1,29 @@
-#ifndef DASHBOARD_H
-#define DASHBOARD_H
+//#ifndef DASHBOARD_H
+//#define DASHBOARD_H
 
-#include <QDialog>
+//#include <QDialog>
+//#include <QString>
+//#include <QDebug>
+//#include "log.h"
 
-namespace Ui {
-class dashboard;
-}
+//namespace Ui {
+//class dashboard;
+//}
 
-class dashboard : public QDialog
-{
-    Q_OBJECT
+//class dashboard : public QDialog
+//{
+//    Q_OBJECT
 
-public:
-    explicit dashboard(QWidget *parent = 0);
-    ~dashboard();
+//public:
+//    explicit dashboard(QWidget *parent = 0);
+//    ~dashboard();
 
-private:
-    Ui::dashboard *ui;
-};
+//private slots:
+//    void on_button_log_clicked();
 
-#endif // DASHBOARD_H
+//private:
+//    Ui::dashboard *ui;
+
+//};
+
+//#endif // DASHBOARD_H

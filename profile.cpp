@@ -1,7 +1,7 @@
 #include "profile.h"
 #include "ui_profile.h"
 
-Profile::Profile(QWidget *parent) :
+Profile::Profile(QWidget *parent, QString us, QString pw) :
     QDialog(parent),
     ui(new Ui::Profile)
 {

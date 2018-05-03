@@ -5,13 +5,14 @@
 
 class Food {
 public :
-    Food();
+    Food(QString, QString, double, int);
     ~Food();
     int calculate_calories();
 private:
     QString name;
     QString unit;
-    int calories_per_unit;
+    double calories_per_unit;
+    int amount;
     int total_calories_gain;
 };
 #endif // FOOD_H

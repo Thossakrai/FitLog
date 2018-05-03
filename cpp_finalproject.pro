@@ -30,7 +30,13 @@ SOURCES += \
     workout.cpp \
     cardio.cpp \
     person.cpp \
-    userprofile.cpp
+    log.cpp \
+    dashboard_old.cpp \
+    dashboard.cpp \
+    userprofile_old.cpp \
+    userprofile.cpp \
+    profile.cpp \
+    food.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -39,13 +45,20 @@ HEADERS += \
     weight_training.h \
     food.h \
     person.h \
-    userprofile.h
+    log.h \
+    dashboard_old.h \
+    dashboard.h \
+    userprofile_old.h \
+    userprofile.h \
+    profile.h
 
 FORMS += \
         mainwindow.ui \
-    home.ui \
+    userprofile.ui \
     log.ui \
-    userprofile.ui
+    dashboard_old.ui \
+    dashboard.ui \
+    userprofile.ui \
+    profile.ui
 
-DISTFILES += \
-    FitLog.db
+DISTFILES +=

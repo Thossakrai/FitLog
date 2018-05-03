@@ -22,10 +22,11 @@ public :
     void closeDB(){
         fitlog_db.close();
         fitlog_db.removeDatabase(QSqlDatabase::defaultConnection);
+        qDebug() << "DB closed" << endl;
     }
     bool openDB() {
         QSqlDatabase fitlog_db = QSqlDatabase::addDatabase("QSQLITE");
-        fitlog_db.setDatabaseName("/Users/60090065/Documents/cpp_finalproject/fitlog.db");
+        fitlog_db.setDatabaseName("/Users/60090065/Desktop/fitlog/fitlog.sqlite3");
         qDebug() << "DB connection status : " << fitlog_db.open()<< endl;
         if (fitlog_db.open() == true) {
             qDebug() << ("Database Connected.");
