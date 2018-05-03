@@ -46,6 +46,14 @@ private slots:
 
     void on_comboBox_foodlist_currentIndexChanged(const QString &arg1);
 
+    void on_pushButton_cancelfood_clicked();
+
+    void on_pushButton_cancelweight_clicked();
+
+    void on_pushButton_cancelcardio_clicked();
+
+    void on_comboBox_cardiolst_currentTextChanged(const QString &arg1);
+
 private:
     QString fullname;
     Ui::Log *ui;

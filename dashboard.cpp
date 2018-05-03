@@ -20,6 +20,32 @@ Dashboard::Dashboard(QWidget *parent, QString fllnm) :
    modal->setQuery(* query);
    ui->tableView->setModel(modal);
 
+   query->prepare("SELECT TotalCal FROM FoodLogbook where Fullname = '"+name+"'");
+   double sum = 0;
+   if(query->exec()) {
+        while(query->next())
+        {
+            sum += query->value(0).toDouble();
+        }
+   }
+   qDebug() << "sum = " << sum << endl;
+   ui->lcdNumber_intake->display(sum);
+
+   double BMR = 0;
+   double Goal = 0;
+   query->prepare("SELECT BMR, Goal_calories FROM User where Name = '"+fllnm+"'");
+   if(query->exec()) {
+       while (query->next()) {
+           BMR = query->value(0).toDouble();
+           Goal = query->value(1).toDouble();
+       }
+   }
+
+   qDebug() << "BMR = " << BMR << "Goal = " << Goal << endl;
+   int progress = (sum / Goal * 100.0);
+   if (progress >= 100) progress = 100;
+   ui->progressBar->setValue(progress);
+
 }
 
 Dashboard::~Dashboard()
@@ -41,4 +67,12 @@ void Dashboard::on_button_logout_clicked()
     this->hide();
     MainWindow mw;
     mw.show();
+}
+
+void Dashboard::on_button_refresh_clicked()
+{
+    this->hide();
+    Dashboard Dash(this, name);
+    Dash.setModal(true);
+    Dash.exec();
 }

@@ -46,6 +46,8 @@ private slots:
 
     void on_button_logout_clicked();
 
+    void on_button_refresh_clicked();
+
 private:
     QString name;
     QString date;

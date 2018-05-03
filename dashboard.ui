@@ -6,23 +6,13 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>710</width>
-    <height>462</height>
+    <width>701</width>
+    <height>487</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QTableView" name="tableView">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>200</y>
-     <width>671</width>
-     <height>241</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QPushButton" name="button_log">
    <property name="geometry">
     <rect>
@@ -92,7 +82,17 @@
      </widget>
     </item>
     <item row="2" column="1">
-     <widget class="QLCDNumber" name="lcdNumber_intake"/>
+     <widget class="QLCDNumber" name="lcdNumber_intake">
+      <property name="font">
+       <font>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="smallDecimalPoint">
+       <bool>false</bool>
+      </property>
+     </widget>
     </item>
     <item row="2" column="0">
      <widget class="QLabel" name="label_3">
@@ -240,6 +240,77 @@
    <property name="text">
     <string>DD/MM/YYYY</string>
    </property>
+  </widget>
+  <widget class="QTabWidget" name="tabWidget">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>200</y>
+     <width>671</width>
+     <height>271</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Prompt</family>
+    </font>
+   </property>
+   <property name="tabPosition">
+    <enum>QTabWidget::North</enum>
+   </property>
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
+   <widget class="QWidget" name="tab">
+    <attribute name="title">
+     <string>Today's Food</string>
+    </attribute>
+    <widget class="QTableView" name="tableView">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>661</width>
+       <height>241</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Prompt</family>
+      </font>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_2">
+    <attribute name="title">
+     <string>Today's Cardio</string>
+    </attribute>
+    <widget class="QTableView" name="tableView_cardio">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>661</width>
+       <height>241</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_3">
+    <attribute name="title">
+     <string>Today's Weight Training</string>
+    </attribute>
+    <widget class="QTableView" name="tableView_wt">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>661</width>
+       <height>241</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
   </widget>
  </widget>
  <resources/>

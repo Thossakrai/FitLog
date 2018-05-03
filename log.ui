@@ -18,8 +18,8 @@
     <rect>
      <x>10</x>
      <y>20</y>
-     <width>491</width>
-     <height>271</height>
+     <width>501</width>
+     <height>281</height>
     </rect>
    </property>
    <property name="currentIndex">
@@ -215,7 +215,7 @@
       <string>Create</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_savefood_2">
+    <widget class="QPushButton" name="pushButton_savecardio">
      <property name="geometry">
       <rect>
        <x>320</x>
@@ -233,7 +233,7 @@
       <string>Save</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_cancelfood_2">
+    <widget class="QPushButton" name="pushButton_cancelcardio">
      <property name="geometry">
       <rect>
        <x>400</x>
@@ -250,6 +250,105 @@
      <property name="text">
       <string>Cancel</string>
      </property>
+    </widget>
+    <widget class="QWidget" name="formLayoutWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>40</y>
+       <width>431</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <layout class="QFormLayout" name="formLayout_2">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="font">
+         <font>
+          <family>Prompt</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Select Cardio</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QComboBox" name="comboBox_cardiolst">
+        <property name="font">
+         <font>
+          <family>Prompt</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_8">
+        <property name="font">
+         <font>
+          <family>Prompt</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Duration (mins)</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QSpinBox" name="spinBox_2">
+        <property name="font">
+         <font>
+          <family>Prompt</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="minimum">
+         <number>1</number>
+        </property>
+        <property name="maximum">
+         <number>120</number>
+        </property>
+        <property name="value">
+         <number>30</number>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="label_5">
+        <property name="font">
+         <font>
+          <family>Prompt</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Calories per min</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QLabel" name="label_cardiocal">
+        <property name="font">
+         <font>
+          <family>Prompt</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>CALORiES</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </widget>
    <widget class="QWidget" name="tab_2">
@@ -318,7 +417,7 @@
       <string>Create</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_savefood_3">
+    <widget class="QPushButton" name="pushButton_saveweight">
      <property name="geometry">
       <rect>
        <x>320</x>
@@ -336,7 +435,7 @@
       <string>Save</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_cancelfood_3">
+    <widget class="QPushButton" name="pushButton_cancelweight">
      <property name="geometry">
       <rect>
        <x>400</x>
@@ -353,6 +452,111 @@
      <property name="text">
       <string>Cancel</string>
      </property>
+    </widget>
+    <widget class="QWidget" name="formLayoutWidget_3">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>40</y>
+       <width>431</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <layout class="QFormLayout" name="formLayout_3">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_7">
+        <property name="font">
+         <font>
+          <family>Prompt</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Select WT</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QComboBox" name="comboBox_weightlist">
+        <property name="font">
+         <font>
+          <family>Prompt</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_10">
+        <property name="font">
+         <font>
+          <family>Prompt</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Repition per set</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QSpinBox" name="spinBox_rep">
+        <property name="font">
+         <font>
+          <family>Prompt</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="minimum">
+         <number>1</number>
+        </property>
+        <property name="maximum">
+         <number>100</number>
+        </property>
+        <property name="value">
+         <number>12</number>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_11">
+        <property name="font">
+         <font>
+          <family>Prompt</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Number of set(s)</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QSpinBox" name="spinBox_sets">
+        <property name="font">
+         <font>
+          <family>Prompt</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="minimum">
+         <number>1</number>
+        </property>
+        <property name="maximum">
+         <number>20</number>
+        </property>
+        <property name="value">
+         <number>4</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </widget>
   </widget>

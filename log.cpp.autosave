@@ -17,8 +17,8 @@ Log::Log(QWidget *parent, QString nm) :
     ui->comboBox_foodlist->setModel(model);
      qDebug() << (model->rowCount());
      closeDB();
+     
      openDB();
-
       QSqlQueryModel * modelcd = new QSqlQueryModel();
       QSqlQuery * querycd  = new QSqlQuery(fitlog_db);
      querycd->prepare("SELECT CardioName FROM Cardio");
@@ -26,7 +26,6 @@ Log::Log(QWidget *parent, QString nm) :
      modelcd->setQuery(*querycd);
      ui->comboBox_cardiolst->setModel(modelcd);
       closeDB();
-
 
 }
 
@@ -110,5 +109,5 @@ void Log::on_pushButton_cancelcardio_clicked()
 
 void Log::on_comboBox_cardiolst_currentTextChanged(const QString &arg1)
 {
-
+    ui
 }
