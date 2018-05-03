@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -65,26 +65,13 @@
       <string>Cancel</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_createfood">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>210</y>
-       <width>75</width>
-       <height>23</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Create</string>
-     </property>
-    </widget>
     <widget class="QWidget" name="formLayoutWidget">
      <property name="geometry">
       <rect>
        <x>30</x>
        <y>40</y>
        <width>431</width>
-       <height>111</height>
+       <height>113</height>
       </rect>
      </property>
      <layout class="QFormLayout" name="formLayout">
@@ -184,6 +171,12 @@
       </item>
       <item row="3" column="1">
        <widget class="QSpinBox" name="spinBox">
+        <property name="font">
+         <font>
+          <family>Prompt</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
         </property>
@@ -202,19 +195,6 @@
     <attribute name="title">
      <string>Log Cardio</string>
     </attribute>
-    <widget class="QPushButton" name="pushButton_createfood_2">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>210</y>
-       <width>75</width>
-       <height>23</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Create</string>
-     </property>
-    </widget>
     <widget class="QPushButton" name="pushButton_savecardio">
      <property name="geometry">
       <rect>
@@ -257,7 +237,7 @@
        <x>30</x>
        <y>40</y>
        <width>431</width>
-       <height>120</height>
+       <height>127</height>
       </rect>
      </property>
      <layout class="QFormLayout" name="formLayout_2">
@@ -445,19 +425,6 @@
       <string>Create</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_createfood_3">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>210</y>
-       <width>75</width>
-       <height>23</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Create</string>
-     </property>
-    </widget>
     <widget class="QPushButton" name="pushButton_saveweight">
      <property name="geometry">
       <rect>
@@ -500,7 +467,7 @@
        <x>30</x>
        <y>40</y>
        <width>431</width>
-       <height>111</height>
+       <height>122</height>
       </rect>
      </property>
      <layout class="QFormLayout" name="formLayout_3">
@@ -594,6 +561,35 @@
         </property>
         <property name="value">
          <number>4</number>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="label_12">
+        <property name="font">
+         <font>
+          <family>Prompt</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Select WT</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QLabel" name="label_calperrep">
+        <property name="font">
+         <font>
+          <family>Prompt</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Calories</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>

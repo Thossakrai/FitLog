@@ -36,7 +36,8 @@ SOURCES += \
     userprofile_old.cpp \
     userprofile.cpp \
     profile.cpp \
-    food.cpp
+    food.cpp \
+    weight_training.cpp
 
 HEADERS += \
         mainwindow.h \

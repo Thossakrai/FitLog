@@ -7,8 +7,9 @@
 class WeightTraining : public Workout
 {
 public:
-    WeightTraining();
-    ~WeightTraining();
+    WeightTraining(QString wtname, int rep, int set, double calperrep);
+    ~WeightTraining() {}
+    double calculate_calories();
 
 private :
     int calories_used_per_set;

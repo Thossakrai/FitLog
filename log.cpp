@@ -1,3 +1,4 @@
+#include <QSqlError>
 #include "log.h"
 #include "ui_log.h"
 
@@ -27,6 +28,15 @@ Log::Log(QWidget *parent, QString nm) :
      ui->comboBox_cardiolst->setModel(modelcd);
       closeDB();
 
+      openDB();
+      QSqlQueryModel * modelwt = new QSqlQueryModel();
+      QSqlQuery * querywt  = new QSqlQuery(fitlog_db);
+     querywt->prepare("SELECT WTName FROM WT");
+     querywt->exec();
+     modelwt->setQuery(*querywt);
+     ui->comboBox_weightlist->setModel(modelwt);
+      closeDB();
+
 }
 
 Log::~Log()
@@ -43,7 +53,6 @@ void Log::on_pushButton_savefood_clicked()
     double cal= ui->label_cal->text().toInt();
     int quantity = ui->spinBox->text().toInt() ;
     QString date = QDate::currentDate().toString(Qt::ISODate);
-
    Food new_food(foodname, unit, cal, quantity);
    double total_cal = new_food.calculate_calories();
     QSqlQuery query;
@@ -54,7 +63,6 @@ void Log::on_pushButton_savefood_clicked()
     query.addBindValue(quantity);
     query.addBindValue(total_cal);
     query.exec();
-
     closeDB();
    this->hide();
    Dashboard dashb(this, fullname);
@@ -78,7 +86,6 @@ void Log::on_comboBox_foodlist_currentIndexChanged(const QString &arg1)
             ui->label_cal->setText(query.value(2).toString());
         }
     }
-
 
     closeDB();
 }
@@ -160,4 +167,52 @@ void Log::on_pushButton_savecardio_clicked()
    dashb.setModal(true);
    dashb.exec();
 
+}
+
+void Log::on_comboBox_weightlist_currentIndexChanged(const QString &arg1)
+{
+    QString wtname = arg1;
+    openDB();
+    QSqlQuery query;
+    query.prepare("select * from WT where WTName = '"+wtname+"' ");
+
+    if (query.exec()) {
+        while(query.next()) {
+            ui->label_calperrep->setText(query.value(1).toString());
+        }
+    }
+    closeDB();
+}
+
+void Log::on_pushButton_saveweight_clicked()
+{
+    QString wtname = ui->comboBox_weightlist->currentText();
+    int rep = ui->spinBox_rep->text().toInt();
+    int set = ui->spinBox_sets->text().toInt();
+    double calperrep = ui->label_calperrep->text().toDouble();
+
+    qDebug() << "rep = " << rep << "set = " << set << "calperrep = " << calperrep << endl;
+
+    WeightTraining wt(wtname, rep, set, calperrep);
+    double total_cal_used  = wt.calculate_calories();
+    qDebug() << "total cal used = " << wt.calculate_calories() << endl;
+    QString date = QDate::currentDate().toString(Qt::ISODate);
+
+     openDB();
+    QSqlQuery query;
+    query.prepare("INSERT INTO WTLogbook(Fullname, Date, WTName, Repitition, Sets, TotalCalUsed) VALUES(?,?,?,?,?,?)");
+    query.addBindValue(fullname);
+    query.addBindValue(date);
+    query.addBindValue(wtname);
+    query.addBindValue(rep);
+    query.addBindValue(set);
+    query.addBindValue(total_cal_used);
+    qDebug() << query.executedQuery();
+    qDebug() << query.lastError();
+    query.exec();
+    closeDB();
+   this->hide();
+   Dashboard dashb(this, fullname);
+   dashb.setModal(true);
+   dashb.exec();
 }

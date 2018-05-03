@@ -10,6 +10,7 @@
 #include "food.h"
 #include "cardio.h"
 #include <QDate>
+#include "weight_training.h"
 
 namespace Ui {
 class Log;
@@ -58,6 +59,10 @@ private slots:
     void on_comboBox_cardiolst_currentIndexChanged(const QString &arg1);
 
     void on_pushButton_savecardio_clicked();
+
+    void on_comboBox_weightlist_currentIndexChanged(const QString &arg1);
+
+    void on_pushButton_saveweight_clicked();
 
 private:
     QString fullname;

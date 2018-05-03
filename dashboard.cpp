@@ -20,7 +20,7 @@ Dashboard::Dashboard(QWidget *parent, QString fllnm) :
    modal->setQuery(* query);
    ui->tableView->setModel(modal);
 
-   query->prepare("SELECT TotalCal FROM FoodLogbook where Fullname = '"+name+"'");
+   query->prepare("SELECT TotalCal FROM FoodLogbook where Fullname = '"+name+"' and Date = '"+date+"' ");
    double sum = 0;
    if(query->exec()) {
         while(query->next())
@@ -45,6 +45,54 @@ Dashboard::Dashboard(QWidget *parent, QString fllnm) :
    int progress = (sum / Goal * 100.0);
    if (progress >= 100) progress = 100;
    ui->progressBar->setValue(progress);
+   closeDB();
+   openDB();
+
+   QSqlQueryModel * modalcd = new QSqlQueryModel();
+   QSqlQuery * querycd = new QSqlQuery(fitlog_db);
+   querycd->prepare("SELECT CardioName, TotalTime, CalUsed, Intensity FROM CardioLogbook where Fullname = '"+fllnm+"' and Date = '"+date+"' ");
+   querycd->exec();
+   modalcd->setQuery(* querycd);
+   ui->tableView_cardio->setModel(modalcd);
+
+   closeDB();
+   openDB();
+
+   QSqlQueryModel * modalwt = new QSqlQueryModel();
+   QSqlQuery * querywt = new QSqlQuery(fitlog_db);
+   querywt->prepare("SELECT WTName, Repitition, Sets, TotalCalUsed FROM WTLogbook where Fullname = '"+fllnm+"' and Date = '"+date+"' ");
+   querywt->exec();
+   modalwt->setQuery(* querywt);
+   ui->tableView_wt->setModel(modalwt);
+
+   closeDB();
+
+   openDB();
+   QSqlQuery queryac;
+   queryac.prepare("SELECT TotalCalUsed FROM WTLogbook where Fullname = '"+name+"' and Date = '"+date+"' ");
+   double sumwt = 0;
+   if(queryac.exec()) {
+        while(queryac.next())
+        {
+            sumwt += queryac.value(0).toDouble();
+        }
+   }
+
+   queryac.prepare("SELECT CalUsed FROM CardioLogbook where Fullname = '"+name+"' and Date = '"+date+"' ");
+   double sumcd = 0;
+   if(queryac.exec()) {
+        while(queryac.next())
+        {
+            sumcd += queryac.value(0).toDouble();
+        }
+   }
+
+
+   double sumoutput = BMR + sumcd + sumwt;
+   qDebug() << sumoutput << endl;
+   ui->lcdNumber_output->display(sumoutput);
+
+
 
 }
 
